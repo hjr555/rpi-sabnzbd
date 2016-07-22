@@ -22,7 +22,8 @@ RUN apk --update add \
 
 RUN apk --update add \
 	make \
-	automake
+	automake \
+	autoconf
 
 # Par2 support
 WORKDIR /par2cmdline
