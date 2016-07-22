@@ -17,9 +17,14 @@ RUN apk --update add \
 && pip install --upgrade pip \
 && pip install pyopenssl cheetah \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
-&& hg clone https://bitbucket.org/dual75/yenc \
-&& git clone https://github.com/sabnzbd/sabnzbd.git
+&& git clone https://github.com/sabnzbd/sabnzbd.git \
+&& hg clone https://bitbucket.org/dual75/yenc
 
+RUN apk --update add \
+	make \
+	automake
+
+# Par2 support
 WORKDIR /par2cmdline
 RUN aclocal && \
 	automake --add-missing && \
@@ -28,12 +33,21 @@ RUN aclocal && \
 	make && \
 	make install
 
+# Yenc support
 WORKDIR /yenc
 RUN python setup.py build
 RUN python setup.py install
 
+# Cleanup
 WORKDIR /
-RUN rm -rf /par2cmdline
-RUN rm -rf /yenc
+RUN rm -rf \ 
+	/par2cmdline \ 
+	/yenc
+
+RUN apk del \
+	gcc \
+	git \
+	mercurial \
+&& apk cache clean
 
 CMD /sabnzbd/SABnzbd.py
