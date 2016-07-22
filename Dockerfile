@@ -14,16 +14,14 @@ RUN apk --update add \
 	unrar \
 	mercurial \
 	openssl \
+	make \
+	automake \
+	autoconf \
 && pip install --upgrade pip \
 && pip install pyopenssl cheetah \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
 && git clone https://github.com/sabnzbd/sabnzbd.git \
 && hg clone https://bitbucket.org/dual75/yenc
-
-RUN apk --update add \
-	make \
-	automake \
-	autoconf
 
 # Par2 support
 WORKDIR /par2cmdline
@@ -49,6 +47,9 @@ RUN apk del \
 	gcc \
 	git \
 	mercurial \
+	make \
+	automake \
+	autoconf \
 && apk cache clean
 
 CMD /sabnzbd/SABnzbd.py
