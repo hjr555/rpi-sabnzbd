@@ -3,6 +3,7 @@ MAINTAINER Hywel Rees <hjr555@gmail.com>
 
 RUN apk --update add \
 	gcc \
+	g++ \
 	git \
 	python \
 	py-openssl \
