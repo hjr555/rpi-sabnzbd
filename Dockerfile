@@ -22,8 +22,9 @@ RUN apk --update add \
 && pip install pyopenssl cheetah --no-cache-dir \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
 && git clone https://github.com/sabnzbd/sabnzbd.git \
-&& cd sabnzbd \
+&& cd /sabnzbd \
 && git checkout tags/1.1.0RC2 \
+&& cd .. \
 && hg clone https://bitbucket.org/dual75/yenc
 
 # Par2 support
