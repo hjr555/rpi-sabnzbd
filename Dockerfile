@@ -58,7 +58,7 @@ RUN apk del \
     /var/cache/apk \
     /par2cmdline \
     /yenc \
-    /sabnzbd/.git \
+    /sabnzbd/.git
 
 EXPOSE 8080
 
