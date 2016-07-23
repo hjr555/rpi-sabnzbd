@@ -22,11 +22,11 @@ RUN apk --update add \
 && pip install pyopenssl cheetah --no-cache-dir \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
 && cd /par2cmdline \
-&& aclocal && \
-&& automake --add-missing && \
-&& autoconf && \
-&& ./configure && \
-&& make && \
+&& aclocal \
+&& automake --add-missing \
+&& autoconf \
+&& ./configure \
+&& make \
 && make install \
 && cd / \
 && rm -rf par2cmdline \
