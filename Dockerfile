@@ -19,7 +19,7 @@ RUN apk --update add \
     automake \
     autoconf \
     p7zip \
-&& pip install --upgrade pip --no-cache-dir\
+&& pip install --upgrade pip --no-cache-dir \
 && pip install pyopenssl cheetah --no-cache-dir \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
 && cd /par2cmdline \
