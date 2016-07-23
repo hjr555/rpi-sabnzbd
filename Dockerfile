@@ -27,19 +27,19 @@ RUN apk --update add \
 && autoconf && \
 && ./configure && \
 && make && \
-&& make install
+&& make install \
 && cd / \
 && rm -rf par2cmdline \
 && git clone https://github.com/sabnzbd/sabnzbd.git \
 && cd /sabnzbd \
 && git checkout tags/1.1.0RC2 \
 && cd / \
-&& hg clone https://bitbucket.org/dual75/yenc
+&& hg clone https://bitbucket.org/dual75/yenc \
 && cd /yenc \
 && python setup.py build \
 && python setup.py install \
 && cd / \
-&& rm -rf /yenc
+&& rm -rf /yenc \
 && apk del \
     gcc \
     g++ \
