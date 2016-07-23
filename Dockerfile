@@ -65,4 +65,4 @@ VOLUME ["/datadir", "/download"]
 
 WORKDIR /sabnzbd
 
-CMD /sabnzbd/SABnzbd.py
+CMD su -pc "./SABnzbd.py -b 0 -f /datadir/config.ini -s 0.0.0.0:8080"
