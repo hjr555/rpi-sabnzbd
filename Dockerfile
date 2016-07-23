@@ -30,10 +30,7 @@ RUN apk --update add \
 && make install \
 && cd / \
 && rm -rf par2cmdline \
-&& git clone https://github.com/sabnzbd/sabnzbd.git \
-&& cd /sabnzbd \
-&& git checkout tags/1.1.0RC2 \
-&& cd / \
+&& git clone --branch 1.1.0RC2 https://github.com/sabnzbd/sabnzbd.git \
 && hg clone https://bitbucket.org/dual75/yenc \
 && cd /yenc \
 && python setup.py build \
