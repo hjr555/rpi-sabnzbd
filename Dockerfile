@@ -21,29 +21,26 @@ RUN apk --update add \
 && pip install --upgrade pip --no-cache-dir\
 && pip install pyopenssl cheetah --no-cache-dir \ 
 && git clone https://github.com/Parchive/par2cmdline.git \
+&& cd /par2cmdline \
+&& aclocal && \
+&& automake --add-missing && \
+&& autoconf && \
+&& ./configure && \
+&& make && \
+&& make install
+&& cd / \
+&& rm -rf par2cmdline \
 && git clone https://github.com/sabnzbd/sabnzbd.git \
 && cd /sabnzbd \
 && git checkout tags/1.1.0RC2 \
-&& cd .. \
+&& cd / \
 && hg clone https://bitbucket.org/dual75/yenc
-
-# Par2 support
-WORKDIR /par2cmdline
-RUN aclocal && \
-    automake --add-missing && \
-    autoconf && \
-    ./configure && \
-    make && \
-    make install
-
-# Yenc support
-WORKDIR /yenc
-RUN python setup.py build
-RUN python setup.py install
-
-# Cleanup
-WORKDIR /
-RUN apk del \
+&& cd /yenc \
+&& python setup.py build \
+&& python setup.py install \
+&& cd / \
+&& rm -rf /yenc
+&& apk del \
     gcc \
     g++ \
     git \
