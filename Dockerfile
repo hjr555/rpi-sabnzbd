@@ -60,6 +60,6 @@ RUN apk --update add \
 
 EXPOSE 8080
 
-VOLUME ["/config", "/downloads"]
+VOLUME ["/datadir", "/download"]
 
 CMD /sabnzbd/SABnzbd.py
