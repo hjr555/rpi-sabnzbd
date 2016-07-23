@@ -56,10 +56,13 @@ RUN apk --update add \
     /var/cache/apk \
     /par2cmdline \
     /yenc \
-    /sabnzbd/.git
+    /sabnzbd/.git \
+    /tmp/*
 
 EXPOSE 8080
 
 VOLUME ["/datadir", "/download"]
+
+WORKDIR /sabnzbd
 
 CMD /sabnzbd/SABnzbd.py
