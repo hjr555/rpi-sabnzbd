@@ -1,4 +1,4 @@
-FROM hypriot/rpi-alpine-scratch:latest
+FROM hypriot/rpi-alpine-scratch:v3.4
 MAINTAINER Hywel Rees <hjr555@gmail.com>
 
 RUN apk --update add \
