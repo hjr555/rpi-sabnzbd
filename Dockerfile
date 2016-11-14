@@ -31,7 +31,7 @@ RUN apk --update add \
 && make install \
 && cd / \
 && rm -rf par2cmdline \
-&& git clone --branch 1.1.1RC3 https://github.com/sabnzbd/sabnzbd.git \
+&& git clone --branch 1.1.1 https://github.com/sabnzbd/sabnzbd.git \
 && hg clone https://bitbucket.org/dual75/yenc \
 && cd /yenc \
 && python setup.py build \
