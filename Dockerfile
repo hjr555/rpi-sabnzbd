@@ -21,7 +21,7 @@ RUN apk --update add \
     p7zip \
 && pip install --upgrade pip --no-cache-dir \
 && pip install pyopenssl cheetah --no-cache-dir \ 
-&& git clone https://github.com/Parchive/par2cmdline.git \
+&& git clone --depth 1 https://github.com/Parchive/par2cmdline.git \
 && cd /par2cmdline \
 && aclocal \
 && automake --add-missing \
@@ -31,7 +31,7 @@ RUN apk --update add \
 && make install \
 && cd / \
 && rm -rf par2cmdline \
-&& git clone --branch 1.1.1 https://github.com/sabnzbd/sabnzbd.git \
+&& git clone --depth 1 --branch 1.1.1 https://github.com/sabnzbd/sabnzbd.git \
 && hg clone https://bitbucket.org/dual75/yenc \
 && cd /yenc \
 && python setup.py build \
